@@ -5,10 +5,10 @@ const Header = (props) => {
   return (
     <>
       <figure className="image is-128x128">
-        <img src={props.image} alt={props.name} />
+        <img src={props.car.image} alt={props.car.name} />
       </figure>
-      <h2>{props.name}</h2>
-      <p>Amount: ${props.price}</p>
+      <h2>{props.car.name}</h2>
+      <p>Amount: ${props.car.price}</p>
     </>
   );
 };
@@ -17,9 +17,7 @@ const Header = (props) => {
 const mapStateToProps = state => {
   // console.log(state)
   return {
-    price: state.car.price,
-    name: state.car.name,
-    image: state.car.image
+   car: state.car
   }
 }
 

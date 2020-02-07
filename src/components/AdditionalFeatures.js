@@ -1,15 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { buyItem } from '../actions';
+import { addFeature } from '../actions';
 
 import AdditionalFeature from './AdditionalFeature';
 
 const AdditionalFeatures = props => {
 
-  const addFeaturehandler = e => {
-    e.preventDefault()
-    buyItem(props.feature);
+  const addFeaturehandler = item => {
+    props.addFeature(item);
   }
 
   return (
@@ -29,12 +28,12 @@ const AdditionalFeatures = props => {
 };
 
 const mapStateToProps = state => {
-  console.log(state)
+  // console.log(state)
   return {
     additionalFeatures: state.additionalFeatures
   }
 }
 
 export default connect(
-  mapStateToProps, {buyItem}
+  mapStateToProps, { addFeature }
 )(AdditionalFeatures);
